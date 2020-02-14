@@ -1,0 +1,14 @@
+echo This is a PyDOS Script.
+echo Here is a quick tutorial on how to use them!
+echo NOTES:
+echo 1. You can use ALL of the normal PyDOS commands, even 'cd'!
+echo \n
+echo How To Start!
+echo 1. Make a file that ends with '.pd' (This is not required but is WAY better!)
+echo 2. Put your scripts in the file like you do in PyDOS
+echo 3. Save as *.pd in a drive
+echo 4. Go to said drive
+echo 5. Run 'open -pd {FILENAME}.pd'
+echo 6. Get results!
+echo \n
+echo Hope this helps!

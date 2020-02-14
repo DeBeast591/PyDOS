@@ -1,0 +1,5 @@
+DRIVE CONFIG
+read-write
+false
+nope.
+false
