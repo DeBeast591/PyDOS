@@ -7,3 +7,6 @@ Made by DeBeast591
 > Terminal, Nano
 # Required Modules
 > OS
+
+# Notes
+> With the OS module, I used Linux commands. I will make functions for the commands that can be replaced easily so that you can change them for your OS's commands.
