@@ -193,7 +193,7 @@ while True:
             print("\t\toutput - get the last output (TRUE/FALSE OUTPUT)")
             print("\tNOTES:")
             print("\t\t{WANTED_INPUT} - not required for the output type")
-            print("etrash - emptys the trash (DRIVES/.trash/)")
+            print("etrash - empties the trash (DRIVES/.trash/)")
 
     # lists all files/folders
     elif action[0] == "lf":
