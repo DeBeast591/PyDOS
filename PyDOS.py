@@ -31,15 +31,14 @@ def config():
     global show_stats, ask_for_drives, allow_config_edits, CONFIG, input_marker, primary_drive
     with open(REL_DATA_PATH + "config.txt") as FILE:
         CONFIG = FILE.readlines()
-        """
-        Config Syntax:
-        CONFIG
-        {STRING: input marker}
-        {STRING: primary drive}
-        {BOOL: show stats?}
-        {BOOL: ask what drive to use?}
-        {BOOL: allow config file edits?}
-        """
+        
+        # Config Syntax:
+        # {ANYTHING}
+        # {STRING: input marker}
+        # {STRING: primary drive}
+        # {BOOL: show stats?}
+        # {BOOL: ask what drive to use?}
+        # {BOOL: allow config file edits?}
 
     # Config variables (String)
     input_marker = CONFIG[1]
@@ -111,14 +110,14 @@ def drive_config():
     global DRIVE_CONFIG, MODE, allow_drive_config_edits
     with open(PATH + "/DRIVES/" + ACTIVE_DRIVE + "/drive_config.txt") as FILE:
         DRIVE_CONFIG = FILE.readlines()
-        """
-        Drive Config Syntax:
-        DRIVE CONFIG
-        {STRING: mode}
-        {BOOL: password?}
-        {STRING: password}
-        {BOOL: allow drive config edits?}
-        """
+        
+        # Drive Config Syntax:
+        # {ANYTHING}
+        # {STRING: mode}
+        # {BOOL: password?}
+        # {STRING: password}
+        # {BOOL: allow drive config edits?}
+        
     if DRIVE_CONFIG[1] in ["read-only", "read-only\n"]:
         MODE = "READ_ONLY"
     elif DRIVE_CONFIG[1] in ["read-write", "read-write\n"]:
