@@ -432,4 +432,5 @@ while True:
 
     # show stats
     if show_stats:
-        if not RunningPyDOSFile: print("\n[STATS] Executed")
+        if not RunningPyDOSFile:
+            print("\n[STATS] Executed")
