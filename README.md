@@ -9,4 +9,4 @@ Made by DeBeast591
 > OS
 
 # Notes
-> With the OS module, I used Linux commands. I will make functions for the commands that can be replaced easily so that you can change them for your OS's commands.
+> With the OS module, I used Linux commands. I will make functions for the os.system() commands so they can be easily replaced for your OS's commands.
