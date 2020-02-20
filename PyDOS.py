@@ -47,12 +47,18 @@ def config():
     primary_drive = CONFIG[2]
 
     # Config Variables (Bool)
-    if CONFIG[3] in ["true", "true\n"]: show_stats = True
-    else: show_stats = False
-    if CONFIG[4] in ["true", "true\n"]: ask_for_drives = True
-    else: ask_for_drives = False
-    if CONFIG[4] in ["true", "true\n"]: allow_config_edits = True
-    else: allow_config_edits = False
+    if CONFIG[3] in ["true", "true\n"]:
+        show_stats = True
+    else:
+        show_stats = False
+    if CONFIG[4] in ["true", "true\n"]:
+        ask_for_drives = True
+    else:
+        ask_for_drives = False
+    if CONFIG[4] in ["true", "true\n"]:
+        allow_config_edits = True
+    else:
+        allow_config_edits = False
 
 # Start Code
 config()
@@ -88,7 +94,8 @@ if ask_for_drives:
         CURRENT_DRIVE = ACTIVE_DRIVE
         if os.path.exists(PATH + "/DRIVES/" + ACTIVE_DRIVE):
             MAIN_FILES = PATH + "/DRIVES/" + ACTIVE_DRIVE
-            while not password(): continue
+            while not password():
+                continue
             break
         else: print("E: Drive does not exist.")
 else:
@@ -112,19 +119,26 @@ def drive_config():
         {STRING: password}
         {BOOL: allow drive config edits?}
         """
-    if DRIVE_CONFIG[1] in ["read-only", "read-only\n"]: MODE = "READ_ONLY"
-    elif DRIVE_CONFIG[1] in ["read-write", "read-write\n"]: MODE = "READ_WRITE"
-    else: MODE = "READ_ONLY"
-    if DRIVE_CONFIG[4] in ["true", "true\n"]: allow_drive_config_edits = True
-    elif DRIVE_CONFIG[4] in ["false", "false\n"]: allow_drive_config_edits = False
-    else: allow_drive_config_edits = False
+    if DRIVE_CONFIG[1] in ["read-only", "read-only\n"]:
+        MODE = "READ_ONLY"
+    elif DRIVE_CONFIG[1] in ["read-write", "read-write\n"]:
+        MODE = "READ_WRITE"
+    else:
+        MODE = "READ_ONLY"
+    if DRIVE_CONFIG[4] in ["true", "true\n"]:
+        allow_drive_config_edits = True
+    elif DRIVE_CONFIG[4] in ["false", "false\n"]:
+        allow_drive_config_edits = False
+    else:
+        allow_drive_config_edits = False
 
 # Command Check
 def command_check(command_length, true_command_length):
     if len(command_length) != true_command_length:
         print("E: Command too short or long, type 'help' to see the command syntax.")
         return True
-    else: return False
+    else:
+        return False
 
 # Main Code
 drive_config()
@@ -228,8 +242,10 @@ while True:
                 if action[1] == "-y":
                     quit()
             else:
-                if input("Are you sure you want to end this session? (y/n)\n\t") == "y": quit()
-                else: print("Abort")
+                if input("Are you sure you want to end this session? (y/n)\n\t") == "y":
+                    quit()
+                else:
+                    print("Abort")
 
     # opens files
     elif action[0] == "open":
@@ -241,10 +257,13 @@ while True:
                         for x in temp_file.readlines():
                             print(x, end="")
                 elif action[1] == "-run":
-                    if MODE == "READ_ONLY": print("E: This is a read only drive.")
-                    else: os.system("python3 " + PATH +"/DRIVES/" + ACTIVE_DRIVE + "/" + action[2])
+                    if MODE == "READ_ONLY":
+                        print("E: This is a read only drive.")
+                    else:
+                        os.system("python3 " + PATH +"/DRIVES/" + ACTIVE_DRIVE + "/" + action[2])
                 elif action[1] == "-pd":
-                    if MODE == "READ_ONLY": print("E: This is a read only drive.")
+                    if MODE == "READ_ONLY":
+                        print("E: This is a read only drive.")
                     else:
                         RunningPyDOSFile = True
                         PDFILE_LOCATION = 0
@@ -253,7 +272,8 @@ while True:
                         PDFILE_FILE_LOCATION = PDFILE_FILE_LOCATION.readlines()
                         for x in PDFILE_FILE_LOCATION:
                             PDFILE.append(str(x))
-            else: print("E: File does not exist.")
+            else:
+                print("E: File does not exist.")
 
     # chages active dir
     elif action[0] == "cd":
@@ -287,14 +307,16 @@ while True:
                                     CURRENT_DRIVE = ACTIVE_DRIVE
                                     # Drive Reconfigure
                                     drive_config()
-                                else: print("Password wrong.")
+                                else:
+                                    print("Password wrong.")
                         else:
                             MAIN_FILES = MAIN_FILES + action[2]
                             ACTIVE_DRIVE = action[2]
                             CURRENT_DRIVE = ACTIVE_DRIVE
                             # Drive Reconfigure
                             drive_config()
-            else: print("Drive does not exist.")
+            else:
+                print("Drive does not exist.")
         # go up in folder tree
         elif action[1] == "..":
             if not command_check(action, 2):
@@ -309,36 +331,47 @@ while True:
         elif os.path.exists(PATH + "/DRIVES/" + ACTIVE_DRIVE + "/" + action[1]):
             if command_check(action, 2) == False:
                 ACTIVE_DRIVE = ACTIVE_DRIVE + "/" + action[1]
-                if "/DRIVES/" in ACTIVE_DRIVE: OUTSIDE_DRIVE = True
-                else: OUTSIDE_DRIVE = False
+                if "/DRIVES/" in ACTIVE_DRIVE:
+                    OUTSIDE_DRIVE = True
+                else:
+                    OUTSIDE_DRIVE = False
         else: print("Folder does not exist.")
 
     # makes a dir or file (can also edit files)
     elif action[0] == "mk":
         if not command_check(action, 3):
-            if MODE == "READ_ONLY": print("E: This is a read only drive.")
+            if MODE == "READ_ONLY":
+                print("E: This is a read only drive.")
             else:
                 if action[1] in ["-dir", "-folder"]:
                     os.system("mkdir " + PATH + "/DRIVES/" + ACTIVE_DRIVE + "/" + action[2])
                 elif action[1] == "-file":
-                    if action[2] == "drive_config.txt": print("E: Use 'config -drive' to edit the config file.")
-                    else: os.system("nano " + PATH + "/DRIVES/" + ACTIVE_DRIVE + "/" + action[2])
+                    if action[2] == "drive_config.txt":
+                        print("E: Use 'config -drive' to edit the config file.")
+                    else:
+                        os.system("nano " + PATH + "/DRIVES/" + ACTIVE_DRIVE + "/" + action[2])
 
     # deletes a dir and puts it in the trash
     elif action[0] == "del":
         if not command_check(action, 2):
-            if MODE == "READ_ONLY": print("E: This is a read only drive.")
-            else: os.system("mv " + PATH + "/DRIVES/" + ACTIVE_DRIVE + "/" + action[1] + " " + PATH + "/DRIVES/.trash/")
+            if MODE == "READ_ONLY":
+                print("E: This is a read only drive.")
+            else:
+                os.system("mv " + PATH + "/DRIVES/" + ACTIVE_DRIVE + "/" + action[1] + " " + PATH + "/DRIVES/.trash/")
 
     # config
     elif action[0] == "config":
         if not command_check(action, 2):
             if action[1] == "-main":
-                if allow_config_edits: os.system("nano " + PATH + "/data/config.txt")
-                else: print("E: Config edits are blocked.")
+                if allow_config_edits:
+                    os.system("nano " + PATH + "/data/config.txt")
+                else:
+                    print("E: Config edits are blocked.")
             elif action[1] == "-drive":
-                if allow_drive_config_edits: os.system("nano " + PATH + "/DRIVES/" + ACTIVE_DRIVE + "/drive_config.txt")
-                else: print("E: Drive config edits are blocked.")
+                if allow_drive_config_edits:
+                    os.system("nano " + PATH + "/DRIVES/" + ACTIVE_DRIVE + "/drive_config.txt")
+                else:
+                    print("E: Drive config edits are blocked.")
 
     # config and drive config reload
     elif action[0] == "reload":
@@ -390,7 +423,8 @@ while True:
                     os.system("rm -rf " + PATH + "/DRIVES/.trash/*")
                 else:
                     print("Abort")
-            else: print("E: This is a read only drive.")
+            else:
+                print("E: This is a read only drive.")
     
     # error
     else:
