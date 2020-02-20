@@ -163,7 +163,6 @@ while True:
         else:
             RunningPyDOSFile = False
             show_stats = True
-            pass
     else:
         action = input(ACTIVE_DRIVE + input_marker).split()
 
