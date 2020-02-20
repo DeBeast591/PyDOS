@@ -329,7 +329,7 @@ while True:
                 ACTIVE_DRIVE = "/".join(ACTIVE_DRIVE)
         # move down in folder tree
         elif os.path.exists(PATH + "/DRIVES/" + ACTIVE_DRIVE + "/" + action[1]):
-            if command_check(action, 2) == False:
+            if not command_check(action, 2):
                 ACTIVE_DRIVE = ACTIVE_DRIVE + "/" + action[1]
                 if "/DRIVES/" in ACTIVE_DRIVE:
                     OUTSIDE_DRIVE = True
