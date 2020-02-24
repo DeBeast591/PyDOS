@@ -103,6 +103,7 @@ else:
         ACTIVE_DRIVE = ACTIVE_DRIVE.strip("\n")
         primary_drive = primary_drive.strip("\n")
     MAIN_FILES = PATH + "/DRIVES/" + ACTIVE_DRIVE
+    CURRENT_DRIVE = ACTIVE_DRIVE
 
 # Drive Config
 MODE = "NULL"
