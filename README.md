@@ -1,3 +1,5 @@
+[![Run on Repl.it](https://repl.it/badge/github/DeBeast591/PyDOS)](https://repl.it/github/DeBeast591/PyDOS)
+
 # PyDOS
 This is a project wrote in Python 3 to make a DOS-like I/O system.
 
