@@ -1,7 +1,6 @@
 """
 PY-DOS
 Made by DeBeast591
-(C) 2020 DeBeast591
 Enjoy!
 * SYS REQUIREMENTS *
 - Python 3.7<=
